@@ -7,8 +7,14 @@ pipeline {
     stages {
         stage('build') {
             steps {
+				sh "apk add curl"
                 sh "curl www.google.com"
             }
         }
     }
+	post {
+		always {
+			archiveArtifacts artifacts: '*.html'
+		}
+	}
 }

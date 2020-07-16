@@ -5,5 +5,21 @@ pipeline {
 		}
 	}
     stages {
+		stage("Build") {
+			steps {
+				echo "building..." 
+			}
+		}
+		stage("Test") {
+			steps {
+				$NUMBER_OF_ISSUES = 10
+			}
+		}
+		stage("Notification") {
+			steps {
+				echo $NUMBER_OF_ISSUES
+			}
+		}
+	
     }
 }
