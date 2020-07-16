@@ -5,5 +5,17 @@ pipeline {
 		}
 	}
     stages {
+		stage('Date printing') {
+			steps {
+				printDate("firstFile")
+				sh "sleep 10s"
+				printDate("secondFile")
+			}
+		}
     }
+}
+
+def printDate(fileName='') {
+	sh "date > $fileName"
+	sh "cat $fileName"
 }

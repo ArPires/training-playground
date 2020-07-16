@@ -5,5 +5,19 @@ pipeline {
 		}
 	}
     stages {
+		stage('build') {
+			steps {
+				createFileWithDate("testFile")
+			}
+		}
+		stage('test') {
+			steps {
+				sh 'cat "testFile" | grep -q 2019 && echo "found" || echo "not found"
+			}
+		}
     }
+}
+
+def createFileWithDate(fileName='') {
+	sh "date > $fileName"
 }
