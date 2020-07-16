@@ -8,8 +8,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                	def buildConfigs = '''
-						[{
+                	def buildConfigs = [{
 							name: "COMPILE",
 							command: "mvn compile"
 						}, {
@@ -21,8 +20,8 @@ pipeline {
 						}, {
 							name: "DEPLOY",
 							command: "mvn deploy"
-						}]
-					'''
+						}
+					]
                 	buildConfigs.each{ buildConfig ->
                 		sh "echo '$buildConfig.name' && $buildConfig.command"
 					}
