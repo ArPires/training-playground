@@ -5,7 +5,7 @@ pipeline {
 		}
 	}
 	environment {
-		buildConfigs = '''[{
+		BUILD_CONFIGS = '''[{
 				name: "COMPILE",
 				command: "mvn compile"
 			}, {
@@ -24,7 +24,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                	def buildConfigs = readJSON($buildConfigs)
+                	def buildConfigs = readJSON($BUILD_CONFIGS)
                 	buildConfigs.each{ buildConfig ->
                 		sh "echo '$buildConfig.name' && $buildConfig.command"
 					}
