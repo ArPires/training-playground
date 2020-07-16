@@ -4,24 +4,27 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
+	environment {
+		buildConfigs = '''[{
+				name: "COMPILE",
+				command: "mvn compile"
+			}, {
+				name: "TEST",
+				command: "mvn test"
+			}, {
+				name: "INSTALL",
+				command: "mvn install"
+			}, {
+				name: "DEPLOY",
+				command: "mvn deploy"
+			}
+		]'''
+	}
     stages {
         stage('build') {
             steps {
                 script {
-                	def buildConfigs = '''[{
-							name: "COMPILE",
-							command: "mvn compile"
-						}, {
-							name: "TEST",
-							command: "mvn test"
-						}, {
-							name: "INSTALL",
-							command: "mvn install"
-						}, {
-							name: "DEPLOY",
-							command: "mvn deploy"
-						}
-					]'''
+                	def buildConfigs = readJSON($buildConfigs)
                 	buildConfigs.each{ buildConfig ->
                 		sh "echo '$buildConfig.name' && $buildConfig.command"
 					}
