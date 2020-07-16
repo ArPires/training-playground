@@ -1,7 +1,7 @@
 pipeline {
     agent { 
 		dockerfile {
-			filename '02 - Dockerfile - Dockerfile Agent'
+			filename '03 - Dockerfile - Install Software Dockerfile'
 			dir '/var/jenkins_home/workspace/003 - Defining Execution Environments/03 - Install Software Dockerfile/003 - Defining Execution Environments'
 		}
 	}
