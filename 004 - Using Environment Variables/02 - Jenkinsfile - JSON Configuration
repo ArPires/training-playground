@@ -7,16 +7,16 @@ pipeline {
 	environment {
 		BUILD_CONFIGS = '''[{
 				name: "COMPILE",
-				command: "mvn compile"
+				command: "echo 'mvn compile'"
 			}, {
 				name: "TEST",
-				command: "mvn test"
+				command: "echo 'mvn test'"
 			}, {
 				name: "INSTALL",
-				command: "mvn install"
+				command: "echo 'mvn install'"
 			}, {
 				name: "DEPLOY",
-				command: "mvn deploy"
+				command: "echo 'mvn deploy'"
 			}
 		]'''
 	}
