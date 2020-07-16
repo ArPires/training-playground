@@ -7,9 +7,6 @@ pipeline {
 					filename '04 - Dockerfile - Multiple Agents using Dockerfile Maven'
 					dir '/var/jenkins_home/workspace/003 - Defining Execution Environments/04 - Multiple Agents using Dockerfile/003 - Defining Execution Environments'
 				}
-				docker { 
-					image 'maven:3.3.3' 
-				} 
 			}
 			steps {
 				sh 'mvn --version'
