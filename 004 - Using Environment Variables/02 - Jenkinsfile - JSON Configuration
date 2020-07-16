@@ -11,20 +11,20 @@ pipeline {
                 	def buildConfigs = '''
 					[
 						{
-							"name": "COMPILE",
-							"command": "mvn compile"
+							name: "COMPILE",
+							command: "mvn compile"
 						},
 						{
-							"name": "TEST",
-							"command": "mvn test"
+							name: "TEST",
+							command: "mvn test"
 						},
 						{
-							"name": "INSTALL",
-							"command": "mvn install"
+							name: "INSTALL",
+							command: "mvn install"
 						},
 						{
-							"name": "DEPLOY",
-							"command": "mvn deploy"
+							name: "DEPLOY",
+							command: "mvn deploy"
 						}
 					]
 					'''
